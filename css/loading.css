@@ -1,0 +1,216 @@
+body {
+  background-color: black;
+  color: #ffff00;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow, 0 0 50px yellow;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+      text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow, 0 0 50px yellow;
+  }
+  to {
+      text-shadow: 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow, 0 0 50px yellow, 0 0 60px yellow;
+  }
+}
+
+.loading-bar {
+  width: 100%;
+  max-width: 300px;
+  height: 10px;
+  background-color: grey;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0 auto 10px;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background-color: yellow;
+  border-radius: 5px;
+  box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
+  animation: progress-glow 1.5s infinite alternate;
+}
+
+@keyframes progress-glow {
+  from {
+      box-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow;
+  }
+  to {
+      box-shadow: 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow;
+  }
+}
+
+.powered-by {
+  margin-top: 20px;
+  font-size: 16px;
+  color: yellow;
+  text-shadow: 0 0 5px yellow;
+}
+
+/* home html */
+.container {
+  text-align: center;
+  margin-bottom: 100px; /* Space for buttons at the bottom */
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px yellow, 0 0 20px yellow, 0 0 30px yellow, 0 0 40px yellow, 0 0 50px yellow;
+}
+
+.divider {
+  border: 0;
+  border-top: 2px solid yellow;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Space between cards */
+}
+
+.card-link {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.card {
+  background-color: black;
+  border: 2px solid yellow;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 10px yellow;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 0, 0.2);
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffff00;
+}
+
+.card:hover::before {
+  opacity: 1;
+  animation: glitch 1s infinite;
+}
+
+.card-text {
+  color: yellow;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.card-link:hover .card-text {
+  color: #000;
+  text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffff00;
+}
+
+/* Animation Styles */
+@keyframes glitch {
+  0% {
+    clip-path: inset(0);
+    transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0.5;
+  }
+  25% {
+    clip-path: inset(10% 0 0 0);
+    transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0.6;
+  }
+  50% {
+    clip-path: inset(20% 0 0 0);
+    transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0.7;
+  }
+  75% {
+    clip-path: inset(30% 0 0 0);
+    transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0.6;
+  }
+  100% {
+    clip-path: inset(40% 0 0 0);
+    transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0.5;
+  }
+}
+
+/* Button Styles */
+.buttons {
+  display: flex;
+  gap: 20px; /* Space between buttons */
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button {
+  background-color: black;
+  color: #ffff00;
+  border: 2px solid #ffff00;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px; /* Ensure buttons have enough width */
+  height: 40px; /* Set a consistent height */
+}
+
+.button:hover {
+  background-color: #ffff00;
+  color: black;
+  box-shadow: 0 0 10px #ffff00;
+  transform: scale(1.1);
+  filter: brightness(0.9);
+}
